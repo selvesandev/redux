@@ -1,3 +1,4 @@
+//this file is not used now because this has been further divided onto sub reducer and combined in index.js
 import * as actionTypes from './actions';
 
 const initialState = {
