@@ -1,3 +1,5 @@
+import * as actionTypes from './actions';
+
 const initialState = {
     counter: 0,
     results: []
@@ -5,31 +7,31 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'INCREMENT':
+        case actionTypes.INCREMENT:
             const newState = Object.assign({}, state);
             newState.counter = state.counter + 1;
             return newState;
-        case 'DECREMENT':
+        case actionTypes.DECREMENT:
             return {
                 ...state,//distributing the old state overriding the counter and return the new state.
                 counter: state.counter - 1
             };
-        case 'ADD':
+        case actionTypes.ADD:
             return {
                 ...state,
                 counter: state.counter + action.payload.value
             };
-        case 'SUB':
+        case actionTypes.SUBTRACT:
             return {
                 ...state,
                 counter: state.counter - action.payload.value
             };
-        case 'STORE_RESULT':
+        case actionTypes.STORE_RESULT:
             return {
                 ...state,
                 results: state.results.concat({id: new Date(), value: state.counter})
             };
-        case 'DELETE_RESULT':
+        case actionTypes.DELETE_RESULT:
             //method 1
             // const id = 2;
             // const newArray = [...state.results];//copy new array never touch the original,
